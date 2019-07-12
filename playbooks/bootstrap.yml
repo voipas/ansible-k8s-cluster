@@ -1,8 +1,8 @@
 ---
 # Management host
 - hosts: mgmt
-   pre_tasks:
-     - name: Updating APT Cache
+  pre_tasks:
+    - name: Updating APT Cache
       apt:
         cache_valid_time: 1800
       become: true
@@ -71,7 +71,7 @@
       register: _reboot_slaves
       when: >
             _cmdline_boot['changed'] and
-            inventory_hostname in groups['rpi_k8s_slaves']
+            inventory_hostname in groups['k8s_slaves']
 
     - name: Waiting For Host To Respond
       wait_for_connection:
@@ -83,7 +83,7 @@
     #   until: _ping['rc'] == 0
     #   retries: 30
     #   delay: 2
-    #   with_items: "{{ groups['rpi_k8s_slaves'] }}"
+    #   with_items: "{{ groups['k8s_slaves'] }}"
     #   when: _reboot_slaves['changed']
 
     - name: Restarting Host
