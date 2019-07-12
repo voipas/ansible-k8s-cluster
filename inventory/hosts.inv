@@ -1,0 +1,15 @@
+[k8s:children]
+k8s_master
+k8s_slaves
+
+
+[k8s_master]
+k8s-master-01 ansible_host=192.168.0.201
+
+[k8s_slaves]
+k8s-slave-01 ansible_host=192.168.0.202
+k8s-slave-02 ansible_host=192.168.0.203
+k8s-slave-03 ansible_host=192.168.0.204
+
+[mgmt]
+rpi00 ansible_host=192.168.0.200

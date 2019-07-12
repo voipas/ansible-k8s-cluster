@@ -1,0 +1,40 @@
+---
+
+# Defines the K8's GlusterFS cluster name to define for deployments
+k8s_glusterfs_cluster_name: glusterfs-cluster
+
+# Define the namespaces for GlusterFS to be defined within
+k8s_glusterfs_namespaces:
+  - default
+  - kube-system
+
+# Defines primary dns domain name for isolated network
+pri_domain_name: homelab.gaugys.com
+
+# Defines if GlusterFS should be used for persistent storage capabilities
+rpi_k8s_use_glusterfs: true
+
+# Defines the number of nodes in cluster
+# Extremely important to define correctly, otherwise provisioning will fail.
+rpi_nodes: 4
+
+# Defines the default rpi password for the rpi_username...default is raspberry
+rpi_password: 
+
+# Defines the root volume device of the RPI's. This is used to update cmdline.txt
+rpi_root_device: /dev/mmcblk0p2
+
+# Defines if DNSMasq should be used for DHCP within cluster
+rpi_k8s_use_dnsmasq: false
+
+# Defines if ISC-DHCP should be used for DHCP within cluster
+rpi_k8s_use_isc_dhcp: false
+
+# Defines the default rpi username...default is pi
+rpi_username: root
+
+# Defines rpi wired interface name
+#rpi_wired_int: eth0
+
+# Defines rpi wireless interface name
+rpi_wireless_int: wlan0
