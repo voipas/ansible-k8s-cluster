@@ -23,8 +23,6 @@
       apt:
         cache_valid_time: 1800
       become: true
-  roles:
-    - role: ansible-change-hostname
 
 - hosts: k8s
   any_errors_fatal: true
@@ -73,10 +71,10 @@
             _cmdline_boot['changed'] and
             inventory_hostname in groups['k8s_slaves']
 
-    - name: Waiting For Host To Respond
-      wait_for_connection:
-        delay: 20
-      when: _reboot_slaves['changed']
+#    - name: Waiting For Host To Respond
+#      wait_for_connection:
+#        delay: 20
+#      when: _reboot_slaves['changed']
 
     # - command: ping -c 2 {{ hostvars[inventory_hostname]['ansible_host'] }}
     #   register: _ping
@@ -97,10 +95,10 @@
             _cmdline_boot['changed'] and
             inventory_hostname in groups['k8s_master']
 
-    - name: Waiting For Host To Respond
-      wait_for_connection:
-        delay: 20
-      when: _reboot_master['changed']
+#    - name: Waiting For Host To Respond
+#      wait_for_connection:
+#        delay: 20
+#      when: _reboot_master['changed']
 
     # - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
     #   wait_for:
