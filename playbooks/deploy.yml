@@ -11,4 +11,3 @@
 
 - name: Managing K8's Deployments
   import_playbook: deployments.yml
-  
